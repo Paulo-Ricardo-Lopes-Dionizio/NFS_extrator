@@ -1,0 +1,8 @@
+{
+  "name": "exemplo/bot-fiscal-unificado",
+  "description": "Dependências PHP para consulta de NF-e modelo 55.",
+  "require": {
+    "php": ">=8.1",
+    "nfephp-org/sped-nfe": "^5.2"
+  }
+}

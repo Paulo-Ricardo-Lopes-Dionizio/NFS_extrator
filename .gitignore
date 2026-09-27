@@ -1,0 +1,51 @@
+# Credenciais e configuração local
+.env
+.env.*
+!.env.example
+
+# Certificados e chaves privadas
+certificado/*
+!certificado/.gitkeep
+*.pfx
+*.p12
+*.pem
+*.key
+*.crt
+
+# Bancos locais / dados de usuários
+*.sqlite
+*.sqlite3
+*.db
+
+# Documentos fiscais, XMLs e retornos reais
+danfe/
+xml/
+retornos/
+saida/
+*.pdf
+*.xml
+
+# Logs e debug
+logs/
+*.log
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# PHP / Composer
+vendor/
+
+# Configuração local opcional de empresas
+empresas_certificadas.json
+!empresas_certificadas.example.json
+
+# IDE / sistema operacional
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store

@@ -1,0 +1,8 @@
+python-telegram-bot>=20,<23
+python-dotenv>=1.0
+requests>=2.31
+requests-pkcs12>=1.25
+PyMuPDF>=1.24
+pypdf>=5
+Pillow>=10
+pytesseract>=0.3.13
