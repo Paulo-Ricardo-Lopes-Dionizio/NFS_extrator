@@ -184,33 +184,18 @@ Para apenas analisar um PDF e visualizar o destino previsto:
 - `historico.py`: deduplicação e auditoria;
 - `fila_bot.py`: fila persistente.
 
-## Segurança para GitHub
-
-O `.gitignore` já exclui:
-
-- `.env`;
-- certificados `.pfx`, `.p12`, `.pem` e `.key`;
-- bancos SQLite;
-- logs;
-- PDFs e XMLs fiscais;
-- `vendor/` e `.venv/`;
-- `empresas_certificadas.json` real.
-
-Antes do primeiro commit, confira:
-
-```powershell
-git add .
-git status --short
-git ls-files
-git grep -n -I -i -E "token|senha|password|secret|api[_-]?key|client_secret|private[_-]?key"
-```
-
-Se tiver Gitleaks instalado:
-
-```powershell
-gitleaks detect --source . --redact
-```
 
 ## Observação
 
 Um PDF de NFS-e municipal sem chave Nacional de 50 dígitos não possui uma API única para baixar o XML. Nesses casos é necessário um conector específico para a prefeitura ou o XML já obtido por outro meio.
+
+## License
+
+Copyright © 2026 Paulo Ricardo Lopes Dionizio.
+
+This project is publicly available for study and reference.
+
+Use, modification, redistribution or commercial use requires
+prior authorization from the author.
+
+For permission, contact the repository owner.
