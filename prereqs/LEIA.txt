@@ -1,0 +1,2 @@
+Visual C++: use BAIXAR_VISUAL_CPP.ps1 na raiz.
+Tesseract opcional: salve o instalador oficial indicado no guia como tesseract-setup.exe.

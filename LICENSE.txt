@@ -1,0 +1,129 @@
+﻿CONTRATO DE LICENÇA DE USO — NFS EXTRATOR
+Versão do texto: 1.0 — 2026
+
+Copyright (c) 2026 Paulo Ricardo Lopes Dionizio.
+Todos os direitos reservados.
+
+IMPORTANTE: ESTE TEXTO É UM MODELO INICIAL E DEVE SER REVISADO POR ADVOGADO
+ANTES DE USO COMERCIAL RELEVANTE OU DE SER UTILIZADO COMO BASE EM LITÍGIO.
+
+1. PARTES E ACEITAÇÃO
+
+Este Contrato de Licença de Uso (“Contrato”) regula o uso do software “NFS Extrator”
+(“Software”), disponibilizado por Paulo Ricardo Lopes Dionizio (“Licenciante”).
+
+Ao selecionar a opção de aceite e prosseguir com a instalação, o usuário declara que
+leu, compreendeu e concorda com este Contrato.
+
+2. TITULARIDADE E PROPRIEDADE INTELECTUAL
+
+O Software, seu código-fonte, documentação, identidade visual e demais materiais de
+autoria do Licenciante permanecem de titularidade de seus respectivos titulares.
+
+Este Contrato não transfere ao usuário a propriedade intelectual do Software.
+
+Componentes, bibliotecas e ferramentas de terceiros incorporados ou utilizados pelo
+Software permanecem sujeitos às suas próprias licenças.
+
+3. USO NÃO COMERCIAL
+
+Salvo indicação diferente por escrito do Licenciante, é permitido utilizar o Software
+para estudo, avaliação, testes e uso pessoal não comercial.
+
+Essa permissão não inclui direito de redistribuir, sublicenciar, vender, alugar,
+publicar versões modificadas ou disponibilizar o Software a terceiros como produto,
+serviço ou parte de outro produto.
+
+4. USO COMERCIAL, PROFISSIONAL, EMPRESARIAL OU INSTITUCIONAL
+
+QUALQUER USO COMERCIAL, PROFISSIONAL, EMPRESARIAL OU INSTITUCIONAL EXIGE
+AUTORIZAÇÃO PRÉVIA E EXPRESSA, POR ESCRITO, DO LICENCIANTE.
+
+Para fins deste Contrato, “uso comercial” inclui, entre outros:
+
+a) uso do Software por empresa, associação, órgão, entidade ou profissional em suas
+   atividades operacionais;
+b) utilização do Software para prestar serviços a terceiros;
+c) utilização do Software em atividade remunerada ou que produza vantagem econômica;
+d) revenda, sublicenciamento, locação ou distribuição comercial;
+e) disponibilização do Software como serviço, hospedagem, SaaS ou solução integrada;
+f) incorporação do Software a produto, serviço, automação ou processo comercial.
+
+O fato de o Software estar disponível publicamente, inclusive em repositório público,
+não constitui autorização para uso comercial.
+
+5. AUTORIZAÇÃO COMERCIAL
+
+A autorização de uso comercial deverá ser concedida expressamente pelo Licenciante,
+preferencialmente por contrato, termo de licença, mensagem eletrônica identificável
+ou outro documento escrito que permita comprovar seu conteúdo e seu destinatário.
+
+A autorização poderá definir prazo, número de instalações, empresa autorizada,
+ambiente de uso, remuneração, suporte, atualizações e demais condições específicas.
+
+6. RESTRIÇÕES
+
+Sem autorização expressa do Licenciante, não é permitido:
+
+a) vender, sublicenciar, alugar ou redistribuir o Software;
+b) publicar cópia modificada ou derivada como produto próprio;
+c) remover avisos de autoria, copyright ou licença;
+d) utilizar o Software comercialmente;
+e) utilizar nome, marca ou identidade visual do Licenciante de modo a sugerir
+   parceria, certificação ou autorização inexistente;
+f) contornar mecanismos técnicos de licenciamento ou autorização, se existentes;
+g) praticar engenharia reversa, descompilação ou desmontagem quando e na medida em
+   que tal restrição seja permitida pela legislação aplicável.
+
+7. CREDENCIAIS, CERTIFICADOS E DADOS
+
+O usuário é responsável pela guarda e pelo uso legítimo de tokens, senhas,
+certificados digitais, documentos fiscais e demais dados inseridos ou processados
+pelo Software.
+
+O usuário deverá utilizar o Software apenas sobre dados e sistemas para os quais
+possua autorização e deverá observar a legislação aplicável, inclusive regras
+fiscais, de proteção de dados e de segurança da informação.
+
+8. GARANTIAS E RESPONSABILIDADE
+
+O Software é fornecido no estado em que se encontra, sem garantia de adequação a
+finalidade específica, continuidade ou ausência absoluta de erros.
+
+Nenhuma disposição deste Contrato pretende excluir responsabilidade que não possa
+ser validamente excluída ou limitada pela legislação aplicável.
+
+O usuário é responsável por manter cópias de segurança, validar resultados relevantes
+e adotar controles adequados antes de utilizar o Software em ambiente produtivo.
+
+9. VIOLAÇÃO E ENCERRAMENTO
+
+O descumprimento deste Contrato poderá resultar na extinção da autorização de uso,
+sem prejuízo das medidas legais cabíveis.
+
+Encerrada a autorização, o usuário deverá cessar o uso não autorizado e eliminar
+cópias cuja manutenção não seja exigida por lei ou autorizada pelo Licenciante.
+
+10. ATUALIZAÇÕES E VERSÕES
+
+Versões futuras do Software poderão ser submetidas a novos termos. A versão do
+Contrato apresentada no momento da instalação será a aplicável àquela instalação,
+ressalvadas alterações validamente pactuadas posteriormente.
+
+11. LEGISLAÇÃO E FORO
+
+Este Contrato será interpretado de acordo com as leis da República Federativa do Brasil.
+
+Fica eleito o foro da Comarca de [BAURU/SP], ressalvadas hipóteses em que
+a legislação aplicável imponha competência diferente ou assegure ao usuário escolha
+de foro diverso.
+
+12. CONTATO E AUTORIZAÇÃO
+
+Solicitações de autorização comercial deverão ser encaminhadas para:
+
+Nome: Paulo Ricardo Lopes Dionizio
+E-mail: paulorld22@gmail.com
+GitHub: https://github.com/Paulo-Ricardo-Lopes-Dionizio/NFS_extrator
+
+Ao prosseguir com a instalação, o usuário declara ter lido e aceitado estes termos.

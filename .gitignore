@@ -16,6 +16,7 @@ certificado/*
 *.sqlite
 *.sqlite3
 *.db
+*.ps1
 
 # Documentos fiscais, XMLs e retornos reais
 danfe/
@@ -28,7 +29,9 @@ saida/
 # Logs e debug
 logs/
 *.log
-
+build/
+dist/
+*.iss
 # Python
 .venv/
 venv/
@@ -49,3 +52,4 @@ empresas_certificadas.json
 Thumbs.db
 desktop.ini
 .DS_Store
+BUILD_EXE_DEBUG*.bat

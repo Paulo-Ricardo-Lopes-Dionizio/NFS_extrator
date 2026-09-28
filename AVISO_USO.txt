@@ -1,0 +1,21 @@
+﻿AVISO IMPORTANTE SOBRE USO DO NFS EXTRATOR
+
+O NFS Extrator pode ser utilizado para estudo, avaliação, testes e uso pessoal
+não comercial, nos limites definidos pelo Contrato de Licença.
+
+ATENÇÃO:
+Qualquer uso comercial, profissional, empresarial ou institucional exige
+AUTORIZAÇÃO PRÉVIA E EXPRESSA do titular dos direitos.
+
+Isso inclui, por exemplo:
+- uso dentro de uma empresa;
+- uso em atividade profissional remunerada;
+- prestação de serviço para clientes;
+- integração a um processo comercial;
+- revenda, sublicenciamento ou disponibilização como serviço.
+
+A disponibilidade pública do código ou do instalador NÃO constitui, por si só,
+autorização para uso comercial.
+
+Leia integralmente o Contrato de Licença apresentado pelo instalador antes de
+prosseguir.
