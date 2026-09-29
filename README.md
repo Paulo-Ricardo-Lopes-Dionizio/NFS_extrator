@@ -49,6 +49,8 @@ DESTINO_NFE=\\SERVIDOR\Fiscal\NFE
 DESTINO_NFSE=\\SERVIDOR\Fiscal\NFSE
 ```
 
+A conta do Windows que executa o bot precisa ter permissão de acesso e escrita no destino.
+
 Com `CRIAR_SUBPASTA_DOCUMENTO=1`, o formato será:
 
 ```text
@@ -72,18 +74,40 @@ Com `CRIAR_SUBPASTA_DOCUMENTO=0`, o XML é salvo diretamente em `DESTINO_NFE` ou
 
 ## Instalação
 
-No Windows:
+### Pelo instalador Windows
+
+Se você recebeu o instalador do aplicativo:
+
+1. Execute o instalador.
+2. Escolha a pasta de instalação.
+3. Preencha as configurações solicitadas.
+4. Caso utilize OCR, siga as instruções da seção **Tesseract OCR e idioma português**.
+5. Conclua a instalação e execute o aplicativo pelo atalho criado.
+
+Quando o pacote inclui PHP portátil e as dependências PHP, não é necessário instalar PHP e Composer separadamente.
+
+O executável empacotado também dispensa a instalação do Python na máquina de destino.
+
+### Pelo código-fonte
+
+No PowerShell, dentro da pasta do projeto:
 
 ```powershell
 py -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+Na primeira configuração, copie o arquivo de exemplo:
+
+```powershell
 Copy-Item .env.example .env
 ```
 
-Depois edite `.env` e preencha apenas os dados da sua instalação.
+> Se você já possui um `.env` configurado, preserve esse arquivo. Não o substitua pelo exemplo.
 
-Para o fluxo de NF-e, instale PHP e Composer e execute:
+Depois edite `.env` e preencha os dados da sua instalação.
+
+Para o fluxo de NF-e, instale PHP e Composer e execute na pasta que contém `composer.json`:
 
 ```powershell
 composer install
@@ -91,9 +115,159 @@ composer install
 
 O `composer.json` instala a biblioteca `nfephp-org/sped-nfe` usada pelos scripts PHP.
 
-Também instale o Tesseract OCR se quiser fallback de OCR e ajuste `TESSERACT_EXE` no `.env`.
+Se utilizar PHP portátil, configure o aplicativo para apontar para o executável correspondente.
+
+## Tesseract OCR e idioma português
+
+O Tesseract é utilizado para reconhecer texto em PDFs digitalizados ou imagens quando a extração de texto nativo não encontra a chave fiscal.
+
+Para utilizar o OCR, disponibilize o Tesseract e os arquivos de idioma:
+
+- `por.traineddata`: português;
+- `eng.traineddata`: inglês, utilizado na tentativa alternativa de reconhecimento.
+
+Instalar a biblioteca Python `pytesseract` não instala o executável do Tesseract nem os arquivos de idioma.
+
+### Baixar o idioma português
+
+Baixe o arquivo pelo link:
+
+**[Baixar por.traineddata — português](https://github.com/tesseract-ocr/tessdata/raw/refs/heads/main/por.traineddata)**
+
+Página oficial do arquivo:
+
+https://github.com/tesseract-ocr/tessdata/blob/main/por.traineddata
+
+Se acessar pela página do GitHub, use a opção **Download raw file**.
+
+Não salve a página HTML: o arquivo precisa se chamar exatamente:
+
+```text
+por.traineddata
+```
+
+### Onde colocar o arquivo
+
+Copie `por.traineddata` para a pasta **tessdata** da instalação do Tesseract que será utilizada pelo bot.
+
+Por exemplo, se o executável estiver em:
+
+```text
+C:\Program Files\Tesseract-OCR\tesseract.exe
+```
+
+O arquivo de português deve ficar em:
+
+```text
+C:\Program Files\Tesseract-OCR\tessdata\por.traineddata
+```
+
+Mantenha também o arquivo:
+
+```text
+C:\Program Files\Tesseract-OCR\tessdata\eng.traineddata
+```
+
+Caso o idioma inglês esteja ausente:
+
+**[Baixar eng.traineddata — inglês](https://github.com/tesseract-ocr/tessdata/raw/refs/heads/main/eng.traineddata)**
+
+> A pasta se chama `tessdata`, não `data`. Coloque os arquivos diretamente nela, sem criar outra pasta `tessdata` dentro da existente.
+
+> Em `Program Files`, o Windows pode solicitar autorização de administrador para copiar os arquivos.
+
+### Durante a instalação do Bot Fiscal
+
+Se optar por utilizar OCR e o instalador solicitar o caminho do Tesseract:
+
+1. Instale o Tesseract ou localize uma cópia completa dele.
+2. Copie `por.traineddata` para a pasta `tessdata` correspondente.
+3. Confira se `eng.traineddata` também está nessa pasta.
+4. Volte ao instalador e selecione **tesseract.exe**.
+5. Continue a instalação.
+
+O campo do instalador deve apontar para o executável, por exemplo:
+
+```text
+C:\Program Files\Tesseract-OCR\tesseract.exe
+```
+
+Não selecione o arquivo `por.traineddata` nesse campo.
+
+Se os idiomas já estiverem incluídos no pacote do aplicativo, não será necessário baixá-los novamente.
+
+### Tesseract portátil no projeto
+
+Para preparar uma distribuição com OCR incluído, mantenha a cópia completa do Tesseract em:
+
+```text
+runtime\tesseract
+```
+
+Os caminhos dos arquivos principais serão:
+
+```text
+runtime\tesseract\tesseract.exe
+runtime\tesseract\tessdata\por.traineddata
+runtime\tesseract\tessdata\eng.traineddata
+```
+
+Preserve também as DLLs e os demais arquivos necessários ao funcionamento dessa distribuição do Tesseract. Copiar somente `tesseract.exe` e os idiomas pode não ser suficiente.
+
+Inclua essa pasta na preparação do pacote e na distribuição do aplicativo.
+
+### Configuração manual
+
+Para configurar o executável no `.env`:
+
+```env
+TESSERACT_EXE=C:\Program Files\Tesseract-OCR\tesseract.exe
+```
+
+Adapte o caminho caso o Tesseract esteja em outra pasta.
+
+### Conferir os idiomas
+
+No PowerShell, execute:
+
+```powershell
+& "C:\Program Files\Tesseract-OCR\tesseract.exe" --list-langs
+```
+
+Para verificar a cópia portátil a partir da pasta do projeto:
+
+```powershell
+& ".\runtime\tesseract\tesseract.exe" --list-langs --tessdata-dir ".\runtime\tesseract\tessdata"
+```
+
+A lista deve incluir:
+
+```text
+eng
+por
+```
+
+Outros idiomas, como `osd`, também podem aparecer.
+
+Se `por` não aparecer, confira se o arquivo foi colocado na pasta `tessdata` indicada pela saída do comando.
+
+Após essa configuração, o reconhecimento OCR utiliza os arquivos locais e não precisa baixar o idioma a cada execução. As consultas fiscais e a comunicação com o Telegram continuam dependendo de internet.
 
 ## Configuração
+
+Na instalação pelo aplicativo, o arquivo de configuração fica em:
+
+```text
+%LOCALAPPDATA%\NFS Extrator\.env
+```
+
+Você pode abrir essa pasta pelo Explorador de Arquivos, colando na barra de endereço:
+
+```text
+%LOCALAPPDATA%\NFS Extrator
+```
+
+Na execução pelo código-fonte, confira qual `.env` sua versão de `app_config.py` utiliza. A configuração do usuário pode ter prioridade sobre o `.env` da pasta do projeto.
 
 As principais opções estão em `.env.example`:
 
@@ -120,7 +294,15 @@ DESTINO_NFSE=saida/NFSE
 CRIAR_SUBPASTA_DOCUMENTO=1
 ```
 
+Se utilizar um Tesseract externo, configure também:
+
+```env
+TESSERACT_EXE=C:\Program Files\Tesseract-OCR\tesseract.exe
+```
+
 Nunca coloque tokens, senhas ou certificados diretamente no código.
+
+Não publique o `.env` real, certificados `.pfx`/`.p12` ou arquivos que contenham credenciais.
 
 ## Lista opcional de destinatários
 
@@ -136,7 +318,7 @@ O arquivo real `empresas_certificadas.json` está no `.gitignore`.
 
 ## Verificação antes de iniciar
 
-Execute:
+Para execução pelo código-fonte:
 
 ```powershell
 .\.venv\Scripts\python.exe .\verificar_configuracao.py
@@ -144,7 +326,17 @@ Execute:
 
 O verificador testa também se `DESTINO_NFE` e `DESTINO_NFSE` têm permissão de escrita.
 
+Se utilizar OCR, confira também os idiomas disponíveis no Tesseract conforme as instruções anteriores.
+
 ## Executar
+
+### Aplicativo instalado
+
+Execute pelo atalho criado durante a instalação.
+
+### Código-fonte
+
+Na pasta do projeto:
 
 ```powershell
 .\.venv\Scripts\python.exe .\bot_telegram.py
@@ -158,7 +350,11 @@ INICIAR_BOT.bat
 
 Como não existe mais automação de interface gráfica, o bot não precisa manter uma sessão de navegador/desktop aberta para copiar os XMLs.
 
+A máquina precisa permanecer ligada, com o processo do bot em execução e acesso à internet.
+
 ## Testes
+
+Para executar os testes pelo código-fonte:
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
@@ -183,7 +379,6 @@ Para apenas analisar um PDF e visualizar o destino previsto:
 - `roteamento.py`: validação opcional de CNPJ/CPF;
 - `historico.py`: deduplicação e auditoria;
 - `fila_bot.py`: fila persistente.
-
 
 ## Observação
 
